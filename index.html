@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Regular Expressions</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h1>Validating Web Forms</h1>
+    <form>
+        <input type="text" name="username" placeholder="username" />
+        <p>Username must be alphanumeric and contain 3 - 16 characters</p>
+
+        <input type="text" name="email" placeholder="email" />
+        <p>Email must be a valid address, e.g. example@example.com</p>
+
+        <input type="password" name="password" placeholder="password">
+        <p>Password must be alphanumeric (@, _ and - are also allowed) and between 6 - 20 characters</p>
+
+        <input type="text" name="telephone" placeholder="telephone">
+        <p>A valid Telephone number (11 digits)</p>
+
+        <input type="text" name="bio" placeholder="Bio">
+        <p>Slug must contain only lowercase letters, numbers and hyphens and be 8 - 50 characters</p>
+        <button>Submit</button>
+        <script src="./js/script.js"></script>
+</body>
+
+</html>
