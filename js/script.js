@@ -3,44 +3,34 @@
 //https://regex101.com/r/bL0Nfv/2/
 
 const inputs = document.querySelectorAll('input');
-let patterns = {
-  telephone: /^\d{11}$/,
-  username: /^[a-z\d]{5,9}$/i,
-  password: /^[\w@-]{8,20}$/,
-  slug: /^[a-z\d-]{15,20}$/,
-  email: /^([a-z\d\.-]+)@([a-z\d]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
-};
-
-const validator = (field, regex) => {
-  if (regex.test(field.value)) {
-    field.className = 'valid';
-  } else {
-    field.className = 'invalid';
-  }
-  // console.log(field);
-  // console.log(regex);
-  console.log(regex.test(field.value));
-  regex.test(field.value);
-};
+const button = document.querySelector('button');
 
 console.log(inputs);
-inputs.forEach(input => {
-  input.addEventListener('keyup', e => {
-    console.log(e.target.attributes.name.value);
-    console.log(e.target);
-    validator(e.target, patterns[e.target.attributes.name.value]);
-  });
+
+const patterns = {
+    firstname: /^[a-zA-Z]{3,5}$/,
+    lastname: /[a-z]/,
+    email: /[a-z]/,
+    password: /^[\w@-]{8,20}$/,
+    telephone: /^[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}$/,
+    bio:/^[a-zA-Z]{$/
+};
+
+inputs.forEach(element => {
+    element.addEventListener('input', e => {
+        formValidator(e.target, patterns[e.target.name]);
+    });
 });
 
-//
-//let flag = 'i'
-//
-//let regex = new RegExp(patterns, flag);
-//
-//console.log(regex);
+const formValidator = (element, pattern) => {
+    if (pattern.test(element.value)) {
+        element.className = 'valid';
+        button.className = 'submit-button';
+        button.disabled = false;
+    } else {
+        element.className = 'invalid';
+        button.classList.remove('submit-button');
+        button.disabled = true;
+    }
+};
 
-const s = new Set();
-const numbers = [1,2,3,4,4,3];
-numbers.forEach(x => s.add(x));
-
-console.log(s)
