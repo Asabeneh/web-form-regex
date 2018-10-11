@@ -19,18 +19,22 @@
         <p>Last name must be alphanumeric and contain 3 - 16 characters</p>
 
         <label for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="email" />
+        <input id="email" type="email" name="email" placeholder="Email" />
         <p>Email must be a valid address, e.g. example@example.com</p>
-
-        <input type="password" name="password" placeholder="password">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password">
         <p>Password must be alphanumeric (@, _ and - are also allowed) and between 6 - 20 characters</p>
-
-        <input type="text" name="telephone" placeholder="telephone">
+        <label for="tel">Telephone</label>
+        <input type="text" id="tel" name="telephone" placeholder="Telephone">
         <p>A valid Telephone number (11 digits)</p>
 
-        <input type="text" name="bio" placeholder="Bio">
-        <p>Bio must contain only lowercase letters, numbers and hyphens and be 8 - 50 characters</p>
-        <button type="submit" disabled>Submit</button>
+        <label for="bio">Your bio</label>
+
+        <input type="text" id ="bio" name="bio" placeholder="Bio">
+        <p>Bio must contain only lowercase letters, underscores, hyphens and be 8 - 50 characters</p>
+        <button type="submit" id="submit-button" disabled>Submit</button>
+    <!-- </form> -->
+        <script src="./js/patterns.js"></script>
         <script src="./js/script.js"></script>
 </body>
 

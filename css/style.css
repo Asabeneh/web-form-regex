@@ -1,70 +1,72 @@
+/* Fonts from Google Fonts - more at https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
-    /* Fonts from Google Fonts - more at https://fonts.google.com */
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
-    @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
-    
-    body{
-    font-family: arial;
-    color: #333;
-    }
-    h1{
-    font-weight: normal;
-    margin: 20px auto;
-    text-align: center;
-    }
-    form{
-    width: 500px;
-    margin: 20px auto;
-    }
-    
-    input{
-    display: block;
-    padding: 8px 16px;
-    font-size: 2em;
-    margin: 10px auto;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 3px solid #ccc;
-    outline: none !important;
-    }
-    .valid{
-    border:2px solid green;
-    border-color:#36cc36;
-    }
-    .valid:focus{
-    
-    }
-    .invalid:focus{
-    border-color:orange;
-    border-color:red;
-    }
-    
-    input + p{
-    font-family: arial;
-    font-size:0.9em;
-    font-weight: bold;
-    text-align: center;
-    margin: 0 10px;
-    color:orange;
-    opacity:0;
-    height:0;
-    }
-    
-    input.invalid + p{
-    opacity:1;
-    height: auto;
-    margin: 20px;
-    
-    }
-    
-    button {
-    height:40px;
-    width:80px;
-    border-radius: 5px;
-    outline: none;
-    border:none;
-    }
+body {
+  font-family: arial;
+  color: #333;
+}
+h1 {
+  font-weight: normal;
+  margin: 20px auto;
+  text-align: center;
+}
+form {
+  width: 500px;
+  margin: 20px auto;
+}
+label {
+  font-size:1.5em;
+}
+input {
+  display: block;
+  padding: 6px 16px;
+  font-size: 1.25em;
+  margin: 10px auto;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 3px solid #ccc;
+  outline: none !important;
+  color:rgb(126, 119, 119);
+}
+.valid {
+  border: 1px solid green;
+  border-color: #36cc36; 
+  border:none;
+  outline:none;
+  box-shadow: 0px 0px 3px 2px rgb(35, 218, 35);
+}
+
+.invalid:focus {
+  border-color: orange;
+  border-color: red;
+}
+
+input + p {
+  font-family: arial;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 10px;
+  color: orange;
+  opacity: 0;
+  height: 0;
+}
+
+input.invalid + p {
+  opacity: 1;
+  height: auto;
+  margin: 20px;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
 .submit-button {
-    background:#3bd33b;
+  background: #3bd33b;
 }

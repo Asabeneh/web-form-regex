@@ -1,36 +1,54 @@
-//https://www.w3schools.com/jsref/jsref_obj_regexp.asp
-//https://www.w3schools.com/jsref/jsref_regexp_digit_non.asp
-//https://regex101.com/r/bL0Nfv/2/
+const allInputElements = document.querySelectorAll ('input');
+const submitButton = document.querySelector ('button');
 
-const inputs = document.querySelectorAll('input');
-const button = document.querySelector('button');
-
-console.log(inputs);
-
-const patterns = {
-    firstname: /^[a-zA-Z]{3,5}$/,
-    lastname: /[a-z]/,
-    email: /[a-z]/,
-    password: /^[\w@-]{8,20}$/,
-    telephone: /^[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}$/,
-    bio:/^[a-zA-Z]{$/
-};
-
-inputs.forEach(element => {
-    element.addEventListener('input', e => {
-        formValidator(e.target, patterns[e.target.name]);
-    });
+allInputElements.forEach (element => {
+  let name;
+  let pattern;
+  let checker;
+  let singleTest;
+  element.addEventListener ('input', e => {
+    name = e.target.name;
+    pattern = patterns[name]['pattern'];
+    checker = checkValidValues(patterns);
+    singleTest = validate(e.target, pattern);
+    
+    if (singleTest) {
+      element.className = 'valid';
+      patterns[name]['valid'] = true;
+      if (checker) {
+        submitButton.disabled = false;
+        submitButton.className = 'submit-button';
+      }
+       else {
+        submitButton.classList.remove ('submit-button');
+        submitButton.disabled = true;
+      }
+    } else {
+      patterns[name]['valid'] = false;
+      element.className = 'invalid';
+      submitButton.disabled = false;
+      submitButton.classList.remove('submit-button');
+    }
+  });
 });
 
-const formValidator = (element, pattern) => {
-    if (pattern.test(element.value)) {
-        element.className = 'valid';
-        button.className = 'submit-button';
-        button.disabled = false;
-    } else {
-        element.className = 'invalid';
-        button.classList.remove('submit-button');
-        button.disabled = true;
-    }
+const validate = function (element, pattern) {
+  let testResult = pattern.test(element.value);
+  testResult ? true: false;
+  return testResult;
 };
+
+const checkValidValues = function (patterns) {
+  const value = Object.values (patterns).every (pattern => {
+    return pattern.valid === true;
+  });
+  return value;
+};
+
+submitButton.addEventListener ('submit', e => {
+  e.preventDefault();
+  console.log('hi')
+  console.log (patterns);
+
+});
 
