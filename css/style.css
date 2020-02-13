@@ -1,49 +1,62 @@
-/* Fonts from Google Fonts - more at https://fonts.google.com */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+* {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: arial;
+  font-family: 'Montserrat';
+  font-family: 'Lato';
+  font-family: 'Nunito';
+  font-family: 'Oswald';
+  font-weight: 300;
   color: #333;
 }
+
 h1 {
   font-weight: normal;
   margin: 20px auto;
   text-align: center;
 }
+
 form {
   width: 500px;
   margin: 20px auto;
 }
+
 label {
-  font-size:1.5em;
+  font-size: 1.25em;
 }
+
 input {
   display: block;
   padding: 6px 16px;
   font-size: 1.25em;
   margin: 10px auto;
   width: 100%;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 3px solid #ccc;
-  outline: none !important;
-  color:rgb(126, 119, 119);
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  height: 45px;
+
 }
+
+input:focus {
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+::placeholder {
+  color: rgb(185, 180, 180);
+}
+
 .valid {
-  border: 1px solid green;
-  border-color: #36cc36; 
-  border:none;
-  outline:none;
-  box-shadow: 0px 0px 3px 2px rgb(35, 218, 35);
+  border: 2px solid #21bf73;
+  outline: none;
 }
 
 .invalid:focus {
-  border-color: orange;
-  border-color: red;
+  border-color: #fd5e53
 }
 
-input + p {
+input+p {
   font-family: arial;
   font-size: 0.9em;
   font-weight: bold;
@@ -54,7 +67,11 @@ input + p {
   height: 0;
 }
 
-input.invalid + p {
+textarea+p {
+  opacity: 0;
+}
+
+input.invalid+p {
   opacity: 1;
   height: auto;
   margin: 20px;
@@ -62,11 +79,28 @@ input.invalid + p {
 
 button {
   height: 50px;
-  width: 100px;
+  width: 150px;
   border-radius: 5px;
   outline: none;
   border: none;
+  background: #444;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
 }
+
 .submit-button {
-  background: #3bd33b;
+  background: #21bf73;
+}
+
+textarea {
+  width: 500px;
+  height: 110px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+textarea:focus {
+  outline: 1px solid #ccc;
 }

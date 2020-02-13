@@ -1,54 +1,53 @@
-const allInputElements = document.querySelectorAll ('input');
-const submitButton = document.querySelector ('button');
+const allInputElements = document.querySelectorAll('input')
+const submitButton = document.querySelector('button')
+const textarea = document.querySelector('textarea')
 
-allInputElements.forEach (element => {
-  let name;
-  let pattern;
-  let checker;
-  let singleTest;
-  element.addEventListener ('input', e => {
-    name = e.target.name;
-    pattern = patterns[name]['pattern'];
-    checker = checkValidValues(patterns);
-    singleTest = validate(e.target, pattern);
-    
+const checkValidValues = function(patterns) {
+  const value = Object.values(patterns).every(pattern => {
+    return pattern.valid === true
+  })
+  return value
+}
+
+allInputElements.forEach(element => {
+  let name
+  let pattern
+  let checker
+  let singleTest
+  element.addEventListener('input', e => {
+    name = e.target.name
+    pattern = patterns[name]['pattern']
+    checker = checkValidValues(patterns)
+    console.log(checker)
+    singleTest = validate(e.target, pattern)
+
     if (singleTest) {
-      element.className = 'valid';
-      patterns[name]['valid'] = true;
+      element.className = 'valid'
+      patterns[name]['valid'] = true
       if (checker) {
-        submitButton.disabled = false;
-        submitButton.className = 'submit-button';
-      }
-       else {
-        submitButton.classList.remove ('submit-button');
-        submitButton.disabled = true;
+        submitButton.disabled = false
+        submitButton.className = 'submit-button'
+      } else {
+        submitButton.classList.remove('submit-button')
+        submitButton.disabled = true
       }
     } else {
-      patterns[name]['valid'] = false;
-      element.className = 'invalid';
-      submitButton.disabled = false;
-      submitButton.classList.remove('submit-button');
+      patterns[name]['valid'] = false
+      element.className = 'invalid'
+      submitButton.disabled = false
+      submitButton.classList.remove('submit-button')
     }
-  });
-});
+  })
+})
 
-const validate = function (element, pattern) {
-  let testResult = pattern.test(element.value);
-  testResult ? true: false;
-  return testResult;
-};
+const validate = function(element, pattern) {
+  let testResult = pattern.test(element.value)
+  testResult ? true : false
+  return testResult
+}
 
-const checkValidValues = function (patterns) {
-  const value = Object.values (patterns).every (pattern => {
-    return pattern.valid === true;
-  });
-  return value;
-};
-
-submitButton.addEventListener ('submit', e => {
-  e.preventDefault();
+submitButton.addEventListener('submit', e => {
+  e.preventDefault()
   console.log('hi')
-  console.log (patterns);
-
-});
-
+  console.log(patterns)
+})

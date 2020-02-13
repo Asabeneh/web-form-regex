@@ -4,6 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>Regular Expressions</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Aldrich|Lato:300,400,700|Montserrat:300,400,500|Nunito:300,400,600|Oswald|Raleway+Dots|Raleway:300,400|Roboto:300,400,500&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
@@ -26,16 +30,16 @@
         <p>Password must be alphanumeric (@, _ and - are also allowed) and between 6 - 20 characters</p>
         <label for="tel">Telephone</label>
         <input type="text" id="tel" name="telephone" placeholder="Telephone">
-        <p>A valid Telephone number (11 digits)</p>
+        <p>A valid Telephone number (11 digits and 333-333-3334)</p>
 
         <label for="bio">Your bio</label>
 
-        <input type="text" id ="bio" name="bio" placeholder="Bio">
+        <input id="bio" name="bio" placeholder="Bio" />
         <p>Bio must contain only lowercase letters, underscores, hyphens and be 8 - 50 characters</p>
         <button type="submit" id="submit-button" disabled>Submit</button>
-    <!-- </form> -->
-        <script src="./js/patterns.js"></script>
-        <script src="./js/script.js"></script>
+    </form>
+    <script src="./js/patterns.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
